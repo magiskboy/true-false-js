@@ -17,8 +17,11 @@
     <script src="js/load.js"></script>
     <script src="js/boot.js"></script>
     <script>
-      var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'divGame');
-
+      var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'divGame', {create: create});
+      function create () {
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        game.scale.startFullScreen(true); 
+      }
       WebFontConfig = {
         active: function() {
           game.time.events.add(Phaser.Timer.SECOND, createText, this);
@@ -38,10 +41,7 @@
       game.state.add('InfoState', InfoState);
       game.state.add('LoaderState', LoaderState);
       game.state.add('BootState', BootState);
-      game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-      game.scale.startFullScreen(true);
       game.state.start('BootState');
-      document.getElementById('divGame').requestFullscreen();
     </script>
   </body>
 </html>
