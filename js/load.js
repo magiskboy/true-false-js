@@ -17,6 +17,8 @@ var LoaderState = {
 	},
 
 	create: function(){
+        	game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+        	game.scale.startFullScreen(true); 
 		game.state.start('MenuState');
 	}
 }
