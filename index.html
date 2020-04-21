@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Game Phaser</title>
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-	<center>
-		<div id='divGame'>
-			<script>
-				var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'divGame');
+  <head>
+    <meta charset="UTF-8">
+    <title>Game Phaser</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <center>
+      <div id='divGame'></div>
+    </center>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.22.0/phaser.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/play.js"></script>
+    <script src="js/win.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/boot.js"></script>
+    <script>
+      var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, 'divGame');
 
-				WebFontConfig = {
-					active: function() {
-						game.time.events.add(Phaser.Timer.SECOND, createText, this);
-					},
+      WebFontConfig = {
+        active: function() {
+          game.time.events.add(Phaser.Timer.SECOND, createText, this);
+        },
 
-					google: {
-						families: ['Finger Paint']
-					}
+        google: {
+          families: ['Finger Paint']
+        }
 
-				};
+      };
 
-				var score = 0;
+      var score = 0;
 
-				game.state.add('MenuState', MenuState);
-				game.state.add('PlayState', PlayState);
-				game.state.add('WinState', WinState);
-				game.state.add('InfoState', InfoState);
-				game.state.add('LoaderState', LoaderState);
-				game.state.add('BootState', BootState);
+      game.state.add('MenuState', MenuState);
+      game.state.add('PlayState', PlayState);
+      game.state.add('WinState', WinState);
+      game.state.add('InfoState', InfoState);
+      game.state.add('LoaderState', LoaderState);
+      game.state.add('BootState', BootState);
 
-				game.state.start('BootState');
-        document.getElementById('divGame').requestFullscreen();
-			</script>
-		</div>
-	</center>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.22.0/phaser.min.js"></script>
-	<script src="js/menu.js"></script>
-	<script src="js/play.js"></script>
-	<script src="js/win.js"></script>
-	<script src="js/info.js"></script>
-	<script src="js/load.js"></script>
-	<script src="js/boot.js"></script>
-</body>
+      game.state.start('BootState');
+      document.getElementById('divGame').requestFullscreen();
+    </script>
+  </body>
 </html>
