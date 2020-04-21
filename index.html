@@ -38,7 +38,8 @@
       game.state.add('InfoState', InfoState);
       game.state.add('LoaderState', LoaderState);
       game.state.add('BootState', BootState);
-
+      game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+      game.scale.startFullScreen(true);
       game.state.start('BootState');
       document.getElementById('divGame').requestFullscreen();
     </script>
